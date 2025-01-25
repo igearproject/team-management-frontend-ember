@@ -1,0 +1,18 @@
+<div class="align-items-center d-flex flex-row p-2 justify-content-between border mb-2 rounded-2">
+  <div>
+    <h3>{{@team.name}}</h3>
+    <p>{{@team.description}}</p>
+    {{#if (gt @team.members.length 0)}}
+      <button class="btn btn-light" type="button" data-bs-toggle="collapse" href="#collapse-members" role="button" aria-expanded="false" aria-controls="collapse-members">
+        show members
+      </button>
+      <ul class="list-group collapse mt-1" id="collapse-members">
+        {{#each @team.members as |member|}}
+          <li class="list-group-item">{{member.name}}</li>
+        {{/each}}
+      </ul>
+    {{/if}}
+    
+  </div>
+{{yield}}
+</div>
