@@ -3,7 +3,7 @@
     <h3>{{@team.name}}</h3>
     <p>{{@team.description}}</p>
     {{#if (gt @team.members.length 0)}}
-      <button class="btn btn-light" type="button" data-bs-toggle="collapse" href="#collapse-members" role="button" aria-expanded="false" aria-controls="collapse-members">
+      <button class="btn btn-light" type="button" data-bs-toggle="collapse" href="#collapse-members" aria-expanded="false" aria-controls="collapse-members">
         show members
       </button>
       <ul class="list-group collapse mt-1" id="collapse-members">

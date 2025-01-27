@@ -1,15 +1,18 @@
 {{page-title "Team"}}
 <div>
   <Title @title="List Team">
-    <button class="btn btn-primary">Add new Team</button>
+    <LinkTo @route="team-add" class="btn btn-primary">
+      {{!-- <button class="btn btn-primary"> --}}
+        Add new Team
+      {{!-- </button> --}}
+    </LinkTo>
   </Title>
   {{#each this.model as |team|}}
     <List @team={{team}}>
       <div class="d-flex gap-2 align-self-start">
-        <button class="btn btn-outline-primary">Edit Team</button>
-        <button class="btn btn-outline-danger">Delete Team</button>
+        <button class="btn btn-outline-primary" type="button">Edit Team</button>
+        <button class="btn btn-outline-danger" type="button">Delete Team</button>
       </div>
     </List>
   {{/each}}
-
 </div>

@@ -9,7 +9,7 @@ export default class TeamRoute extends Route {
     const filter = {
       filter: {
         offset: params.offset || 0,
-        limit: params.limit || 10,
+        // limit: params.limit || 10,
         order: params.order || 'name',
         skip: 0,
         fields: {
