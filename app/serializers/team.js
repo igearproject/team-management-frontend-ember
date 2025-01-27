@@ -88,13 +88,13 @@ export default class TeamSerializer extends RESTSerializer {
     );
   }
 
-  serialize(snapshot) {
+  serialize(snapshot, options) {
     let json = {
       name: snapshot.attr('name'),
       description: snapshot.attr('description'),
     };
 
-    if (snapshot.hasMany('members')) {
+    if (options && options.includeMembers && snapshot.hasMany('members')) {
       json.members = snapshot.hasMany('members').map((memberSnapshot) => ({
         id: memberSnapshot.id,
         name: memberSnapshot.attr('name'),

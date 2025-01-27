@@ -1,0 +1,12 @@
+{{page-title "Edit Team"}}
+<div>
+  <Title @title="Edit Team">
+    <LinkTo @route="team" class="btn btn-secondary">cancel</LinkTo>
+  </Title>
+  <div class="row">
+    <div class="col-md-4 col-sm-12">
+      <EditTeam @idTeam={{this.idTeam}} @team={{this.model}}/>
+    </div>
+  </div>
+
+</div>
