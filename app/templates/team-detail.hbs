@@ -1,0 +1,36 @@
+{{page-title "Team Detail"}}
+<div>
+  <Title @title="Detail Team">
+    <LinkTo @route="team" class="btn btn-secondary">back</LinkTo>
+  </Title>
+  <div class="row">
+    <div class="col-md-12">
+      {{#if @isLoading}}
+        <Loader/>
+      {{else}}
+        <div class="align-items-center d-flex flex-row justify-content-between mb-2">
+          <div>
+            <h2>{{@model.name}}</h2>
+            <p>{{@model.description}}</p>
+          </div>
+        </div>
+        <div class="d-flex flex-column">
+          <div class="d-flex flex-row justify-content-between align-items-center">
+            <h3>Team Members</h3>
+            <LinkTo class="btn btn-outline-primary" @route="member-add" @model={{@model.id}}>Add</LinkTo>
+          </div>
+          {{#if (gt @model.members.length 0)}}
+              <ul class="list-group mt-1">
+                {{#each @model.members as |member|}}
+                <LinkTo @route="member-detail" @models={{array @model.id member.id}} style="text-decoration: none;">
+                  <li class="list-group-item">{{member.name}} <small>({{member.role}})</small></li>
+                </LinkTo>
+                {{/each}}
+              </ul>
+            {{/if}}
+        </div>
+      {{/if}}
+    </div>
+  </div>
+
+</div>

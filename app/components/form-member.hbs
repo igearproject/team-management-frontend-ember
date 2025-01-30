@@ -1,0 +1,34 @@
+<form {{on "submit" this.handleSubmit}}>
+  
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" required="required" id="name" value={{this.name}} {{on "input" this.setName}} placeholder="type name ...">
+  </div>
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Role</label>
+    <select class="form-select" value={{this.role}} {{on "change" this.setRole}}  aria-label="Default select example">
+      <option selected>Select role</option>
+      <option value="developer" selected={{if (eq this.dataMember.role "developer") "selected"}}>developer</option>
+      <option value="designer" selected={{if (eq this.dataMember.role "designer") "selected"}}>designer</option>
+      <option value="manager" selected={{if (eq this.dataMember.role "manager") "selected"}}>manager</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Team</label>
+    <input type="text" class="form-control" required="required" id="teamName" value={{this.team.name}} readonly="readonly" placeholder="input id team ...">
+    <input type="number" min="0" hidden="hidden" class="form-control" required="required" id="idTeam" value={{if this.idTeam this.idTeam this.team.id}} {{on "input" this.setIdTeam}} placeholder="input id team ...">
+  </div>
+  
+  <button type="submit" class="btn btn-primary" disabled={{@isLoading}}>
+    {{if (eq this.for "add") "Add new Member" "Save Change Member"}}
+  </button>
+</form>
+{{#if (eq this.for "update")}}
+<div class="row mt-4">
+  <div class="col-md-12">
+    <button type="button" class="btn btn-danger" {{on "click" this.deleteMember}}>Delete this member</button>
+  </div>
+</div>
+{{/if}}

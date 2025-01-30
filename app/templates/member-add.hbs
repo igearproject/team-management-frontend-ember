@@ -1,0 +1,12 @@
+{{page-title "Member Add"}}
+<div>
+  <Title @title="Add New Team Member">
+    <LinkTo @route="team-detail" @model={{this.model.id}} class="btn btn-secondary">back</LinkTo>
+  </Title>
+  <div class="row">
+    <div class="col-md-4 col-sm-12">
+      <FormMember @for="add" @team={{this.model}}/>
+    </div>
+  </div>
+
+</div>

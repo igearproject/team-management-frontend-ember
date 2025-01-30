@@ -1,0 +1,13 @@
+<table class="table">
+  <tr>
+    <td>Name</td>
+    <td>:</td>
+    <td>{{this.team.name}}</td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td>:</td>
+    <td>{{this.team.description}}</td>
+  </tr>
+</table>
+<button class="btn btn-danger" type="button" {{on "click" (fn this.deleteTeam this.team.id)}}>Delete Team</button>

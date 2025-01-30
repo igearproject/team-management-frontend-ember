@@ -9,10 +9,11 @@
   </Title>
   {{#each this.model as |team|}}
     <List @team={{team}}>
-      <div class="d-flex gap-2 align-self-start">
+      <div class="d-flex flex-sm-row gap-2 align-self-start">
+        <LinkTo class="btn btn-outline-primary" @route="team-detail" @model={{team.id}}>Detail Team</LinkTo>
         <LinkTo class="btn btn-outline-primary" @route="team-edit" @model={{team.id}}>Edit Team</LinkTo>
         {{!-- {{#link-to "team-edit" team.id}}<button class="btn btn-outline-primary">Edit Team</button>{{/link-to}} --}}
-        <button class="btn btn-outline-danger" type="button">Delete Team</button>
+        <LinkTo class="btn btn-outline-danger" @route="team-delete" @model={{team.id}}>Delete Team</LinkTo>
       </div>
     </List>
   {{/each}}

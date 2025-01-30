@@ -1,0 +1,6 @@
+{{#if this.message}}
+    <div class="alert alert-{{this.message.type}} mt-2 d-flex justify-content-between" role="alert">
+        {{this.message.message}}
+        <button type="button" class="btn-close" {{on "click" this.remove}}></button>
+    </div>
+{{/if}}
